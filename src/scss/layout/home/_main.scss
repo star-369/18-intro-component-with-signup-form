@@ -1,0 +1,162 @@
+@use "../../abstracts/mixins" as *;
+body {
+  background: var(--red);
+  &::before {
+    content: url("../assets/bg-intro-mobile.png");
+    position: absolute;
+    top: 0;
+    left: 50%;
+    translate: -50% 0;
+    z-index: -1;
+  }
+}
+
+.form-signup {
+  width: 300px;
+  font-family: var(--poppins);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  &__title {
+    flex: 1;
+    h1,
+    p {
+      text-align: center;
+      color: white;
+    }
+    h1 {
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    p {
+      font-size: 0.75rem;
+      line-height: 1.6;
+      margin-bottom: 3rem;
+    }
+  }
+  &__content {
+    flex: 1;
+    &__header {
+      width: 100%;
+      background: var(--blue);
+      text-align: center;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+      box-shadow: rgba(0, 0, 0, 0.19) 0px 7px 0px;
+      p {
+        color: white;
+        font-size: 0.75rem;
+        span {
+          font-weight: 700;
+        }
+      }
+    }
+    &__body {
+      background: white;
+      padding: 1rem;
+      border-radius: 0.5rem;
+
+      &--default {
+        border: 1px solid var(--grayish-blue);
+      }
+      &--danger {
+        border: 1px solid var(--red);
+      }
+      div {
+        margin-bottom: 0.8rem;
+        span {
+          position: relative;
+          label {
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            top: 50%;
+            right: 1rem;
+            translate: 0 -50%;
+          }
+        }
+        input {
+          width: 100%;
+          border-radius: 0.25rem;
+          outline: none;
+          padding: 0.5rem 1rem;
+          position: relative;
+          font-weight: 500;
+          &::placeholder {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            translate: 0 -50%;
+            font-size: 0.75rem;
+          }
+          &:focus {
+            border: 1px solid black;
+          }
+        }
+
+        p {
+          color: red;
+          text-align: right;
+        }
+        img {
+          position: absolute;
+          top: 50%;
+        }
+      }
+      button[type="submit"] {
+        padding: 0.75rem 0;
+        border-radius: 0.25rem;
+        width: 100%;
+        letter-spacing: 1.5px;
+        border: none;
+        background: var(--green);
+        font-weight: 600;
+        font-size: 0.75rem;
+        color: white;
+        box-shadow: hsla(154, 54%, 38%, 0.75) 0px 3px 0px;
+        &:hover {
+          background: hsl(154, 76%, 57%);
+        }
+      }
+      p {
+        text-align: center;
+        color: var(--grayish-blue);
+        font-size: 0.6rem;
+        font-weight: 600;
+        padding: 0.5rem 0.5rem;
+        span {
+          color: var(--red);
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+@include breakpoint(medium) {
+  body {
+    overflow: hidden;
+    &::before {
+      content: url("../assets/bg-intro-desktop.png");
+      position: absolute;
+      left: 50%;
+      translate: -50% 0;
+      z-index: -1;
+    }
+  }
+  .form-signup {
+    flex-direction: row;
+    width: 750px;
+    &__title {
+      padding-right: 2rem;
+      margin: auto 0;
+      h1 {
+        font-size: 2rem;
+      }
+      h1,
+      p {
+        text-align: left;
+      }
+    }
+  }
+}
